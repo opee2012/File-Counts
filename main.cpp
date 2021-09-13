@@ -7,25 +7,27 @@
 using namespace std;
 
 int main() {
-    ifstream indata;
-    char ch;
+    ifstream file;
+    char fileContents;
     int lines = 0, words = 0, chr = 0;
+    string txtFile;
 
-    indata.open("Writ101Essay.txt");
+    txtFile = "Writ101Essay.txt"; //temporary placeholder
 
-    indata.get(ch);
+    file.open(txtFile);
+    file.get(fileContents);
     
-    while(indata) {
-        if (ch == '\n')
+    while(file) {
+        if (fileContents == '\n')
             lines++;
-        else if (ch == ' ')
+        else if (fileContents == ' ')
             words++;
         else
             chr++;
-    indata.get(ch);
+    file.get(fileContents);
     }
 
-    cout << lines << "\t" << words << "\t" << chr << "\t" << "Writ101Essay.txt" << endl;
+    cout << lines << "\t" << words << "\t" << chr << "\t" << txtFile << endl;
 
 
     return 0;
