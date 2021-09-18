@@ -6,13 +6,12 @@
 using namespace std;
 
 string FileCheck();
-void CountLines();
-void CountWords();
-void CountCharacters();
+string CountLines();
+void CountWords(string);
+void CountCharacters(string);
 
 ifstream inputFile;
 string inputFileName;
-ostringstream readBuffer;
 int lines = 0;
 int words = 0;
 int characters = 0;
@@ -21,14 +20,11 @@ int main()
 {
     FileCheck();
     
-    while (!inputFile.eof()) {
-        string lineHolder;
-    
-        getline(inputFile, lineHolder);
-        lines++;
-        characters += lineHolder.length();
-        CountWords();
-
+    while (!inputFile.eof()) 
+    {
+        string lineBuffer = CountLines();
+        CountWords(lineBuffer);
+        CountCharacters(lineBuffer);
     }
     
     cout << lines << "\t" << words << "\t" << characters << "\t" << inputFileName;
@@ -55,25 +51,29 @@ string FileCheck()
     return (inputFileName);
 }
 
-void CountLines()
+string CountLines()
 {
     string lineHolder;
-    
+
     getline(inputFile, lineHolder);
+    
     lines++;
+
+    return (lineHolder);
 }
 
-void CountWords()
+void CountWords(string readWords)
 {
-    string readWords;
-    
-    while (inputFile >> readWords)
+    stringstream s(readWords);
+    string wordBuffer;
+
+    while (s >> wordBuffer)
     {
         words++;
     }
 }
 
-void CountCharacters()
+void CountCharacters(string readCharacters)
 {
-    
+    characters += readCharacters.length();
 }
