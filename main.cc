@@ -52,7 +52,7 @@ int CountLines()
     while (!inputFile.eof())
     {
         getline(inputFile, lineHolder);
-        ++lines;
+        lines++;
     }
     
     return 0;
