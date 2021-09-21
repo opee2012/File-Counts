@@ -41,6 +41,7 @@ int main()
     CountWords(lineBuffer);                 // Void function to count the total number of words in the input file.
     CountCharacters(lineBuffer);            // Void function to count the total number of characters in the input file.
     
+    // program output
     cout << lines << "\t" << words << "\t" << characters << "\t" << inputFileName;
     
     return 0;
