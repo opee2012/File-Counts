@@ -7,5 +7,4 @@ main.o:	main.cc
 	g++ -c main.cc
 	
 clean:
-	rm -rf *.o
-	rm -rf main
+	rm -rf *.o project1
