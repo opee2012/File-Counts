@@ -1,3 +1,5 @@
+## GRADE: 100
+
 all:	project1
 
 project1:	main.o
